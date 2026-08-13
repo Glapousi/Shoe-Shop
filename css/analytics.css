@@ -1,0 +1,247 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fcfcfc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+select, input[type="number"] {
+    padding: 10px;
+    border: 1px solid #cfd6e0;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-top: 5px;
+    background: #ffffff;
+}
+
+button {
+    padding: 12px 26px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #003f82;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    color: #0056b3;
+    font-weight: bold;
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+.charts-wrapper {
+    display: none;
+}
+
+.chart-container {
+    margin-bottom: 45px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.chart-container h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgb(67,145,184);
+    background: linear-gradient(90deg, rgba(67,145,184,1) 0%, rgba(89,185,204,1) 35%, rgba(90,196,218,1) 100%);
+    color: white;
+}
+
+.nav-bar .logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: default;
+}
+
+.nav-bar .back a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.chart-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; /* Κεντράρισμα της εικόνας */
+    border-radius: 8px; /* Απαλές γωνίες που ταιριάζουν με το theme σου */
+    border: 1px solid #e0e6ed; /* Πολύ διακριτικό περίγραμμα, πιο ωραίο από το #ccc */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Ελαφριά σκιά στην ίδια την εικόνα */
+}
+
+/* Ομοιομορφία στους τίτλους των γραφημάτων (h3) */
+.chart-container h3 {
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-size: 19px;
+    text-align: center; /* Κεντράρουμε τον τίτλο για καλύτερη συμμετρία */
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f4f8; /* Μια διακριτική γραμμούλα κάτω από τον τίτλο */
+}
+        
+
+
+
+/* Το σκούρο φόντο πίσω από το pop-up */
+.modal {
+    display: none; /* Κρυφό από προεπιλογή */
+    position: fixed; 
+    z-index: 1000; /* Να είναι πάνω από όλα τα άλλα */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.6); /* Μαύρο με διαφάνεια */
+    backdrop-filter: blur(4px); /* Θολώνει ελαφρώς τη σελίδα από πίσω */
+}
+
+/* Το λευκό "κουτί" στο κέντρο */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% από την κορυφή, κεντραρισμένο */
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%; 
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-out; /* Ομαλή εμφάνιση */
+}
+
+/* Το κουμπάκι X */
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #d9534f; /* Γίνεται κόκκινο όταν πάει το ποντίκι */
+    text-decoration: none;
+}
+
+/* Animation για να "σκάει" ομαλά το παράθυρο */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+
+
+@media (max-width: 1200px) {
+    .container {
+        margin: 20px auto;
+        padding: 30px;
+    }
+}
+
+/* 2. Για Tablets και Μικρά Laptops (κάτω από 768px) */
+@media (max-width: 768px) {
+    .controls {
+        gap: 15px;
+    }
+    
+    .control-group {
+        flex: 1 1 100%; /* Τα φίλτρα στοιχίζονται το ένα κάτω από το άλλο */
+    }
+    
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .chart-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+/* 3. Για Κινητά Τηλέφωνα (κάτω από 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        width: 95%; /* Περισσότερος χώρος στα κινητά */
+        margin: 10px auto;
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .nav-bar {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .modal-content {
+        padding: 20px;
+        margin: 15% auto; /* Περισσότερο κενό από την κορυφή στα κινητά */
+    }
+
+    .close-btn {
+        top: 5px;
+        right: 15px;
+    }
+}

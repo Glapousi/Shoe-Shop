@@ -1,0 +1,7 @@
+config/database.php
+.idea
+backend/config.py
+
+__pycache__/
+*.pyc
+
